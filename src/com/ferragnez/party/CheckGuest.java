@@ -1,11 +1,3 @@
-//State lavorando col servizio di sicurezza dei Ferragnez e
-// il vostro compito è di assicurarvi che accedano alla festa solo gli invitati presenti sulla
-// lista (in fondo al post)
-//Consegna: creare un progetto java-festa-ferragnez con il package com.ferragnez.party,
-// a cui aggiungere la classe CheckGuest
-//Nel programma bisogna:
-//creare e inizializzare l’array contenente i nomi degli invitati
-//chiedere all’utente come si chiama
 //verificare che il nome sia presente nella lista (:esclamazione:ATTENZIONE: in Java
 // per confrontare due stringhe non posso usare ==, ma devo usare il metodo equals(): esempio qui)
 //lasciarlo entrare o rispedirlo cortesemente da dove è venuto :occhiali_da_sole:
@@ -26,15 +18,27 @@ public class CheckGuest {
                 "Ilary Blasi", "Bebe Vio", "Luis",
                 "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
 
+        System.out.println("Come ti chiami?");
 
-        for(int i = 0; i < invitati.length; i++) {
-            System.out.println("Come ti chiami?");
-            String nome = scan.nextLine();
-            if (nome.equals(invitati[i])) {
-                System.out.println("puoi entrare");
-            } else {
-                System.out.println("Mi dispiace non sei sulla lista");
+        String nome = scan.nextLine();
+      boolean seiSullaLista = false;
+
+
+      for (int i = 0; i < invitati.length; i++) {
+          if (nome.equals(invitati[i])) {
+              seiSullaLista = true;
+              break;
+          }
+      }
+
+            if(seiSullaLista){
+                System.out.println("Puoi entrare");
             }
+            else{
+                System.out.println("Mi dispiace, non sei sulla lista");
+            }
+            scan.close();
         }
+
     }
-}
+
